@@ -1,1 +1,44 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@custom-variant light (.light &);
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Variable.ttf') format('truetype');
+  font-weight: 100 800; 
+  font-style: normal;
+  font-display: swap; 
+}
+
+
+:root {
+  --dev-background: #050505; 
+  --dev-text-color: #ffffff;
+  
+  --dev-border: rgba(255, 255, 255, 0.1); 
+  --dev-surface: rgba(255, 255, 255, 0.05); 
+  --dev-surface-hover: rgba(255, 255, 255, 0.1); 
+  --dev-text-muted: #9ca3af; 
+}
+
+
+.light {
+  --dev-background: #f7f5f0; 
+  --dev-text-color: #2d2d2d; 
+  
+
+  --dev-border: rgba(0, 0, 0, 0.1); 
+  --dev-surface: rgba(0, 0, 0, 0.04); 
+  --dev-surface-hover: rgba(0, 0, 0, 0.08);
+  --dev-text-muted: #6b7280; 
+}
+
+@theme {
+  --color-dev-bg: var(--dev-background);
+  --color-dev-primary: var(--dev-text-color);
+  --color-dev-border: var(--dev-border);
+  --color-dev-surface: var(--dev-surface);
+  --color-dev-surface-hover: var(--dev-surface-hover);
+  --color-dev-muted: var(--dev-text-muted);
+  --font-code: 'JetBrains Mono', monospace;
+}

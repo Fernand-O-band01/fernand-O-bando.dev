@@ -5,7 +5,7 @@
     <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none flex items-center justify-center">
       
       {/* BARRA 1 (Translúcida) - La bajamos un poco más en PC (lg:translate-y-[55vh]) para dar espacio al contenido más grande */}
-      <div class="absolute w-[250vw] rotate-0 md:-rotate-12 translate-y-[38vh] lg:translate-y-[55vh] bg-dev-surface border-y border-dev-border py-3 md:py-4 flex shadow-xl transition-transform duration-500">
+      <div class="absolute w-[250vw] rotate-0 md:-rotate-22 translate-y-[38vh] lg:translate-y-[45vh] bg-dev-surface border-y border-dev-border py-3 md:py-4 flex shadow-xl transition-transform duration-500">
         <div class="flex w-max animate-marquee text-dev-primary font-code text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase">
           {[...Array(12)].map(() => (
             <div class="flex items-center justify-around w-max shrink-0 px-4 md:px-8">
@@ -20,7 +20,7 @@
       </div>
 
       {/* BARRA 2 (Sólida) - La empujamos un poco más a la derecha en PC (lg:translate-x-[55vw]) */}
-      <div class="hidden md:flex absolute w-[250vw] rotate-[25deg] translate-x-[45vw] lg:translate-x-[55vw] bg-dev-primary text-dev-bg py-5 shadow-2xl transition-transform duration-500">
+      <div class="hidden md:flex absolute w-[250vw] rotate-[25deg] translate-x-[65vw] lg:translate-x-[55vw] bg-dev-primary text-dev-bg py-5 shadow-2xl transition-transform duration-500">
         <div class="flex w-max animate-marquee text-dev-bg font-code text-base sm:text-xl font-bold tracking-widest uppercase" style="animation-direction: reverse;">
           {[...Array(12)].map(() => (
             <div class="flex items-center justify-around w-max shrink-0 px-8">
@@ -41,10 +41,20 @@
         
         {/* TEXTO */}
         <div class="flex flex-col items-center md:items-start gap-6 flex-1">
-            {/* Título más grande: md:text-6xl lg:text-7xl */}
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-code text-dev-primary transition-colors duration-300 text-center md:text-left leading-tight">
-                Fernando <br class="hidden lg:block" /> Obando
-            </h1>
+            <div class="flex items-start gap-3">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-code text-dev-primary transition-colors duration-300 text-center md:text-left leading-tight">
+                    Fernando <br class="hidden lg:block" /> Obando
+                </h1>
+                
+                <div class="mt-4 md:mt-6 animate-pulse">
+                    <a href="https://vanter.net">
+                        <img src="/src/assets/vanter-tech_logo_negative.png" alt="Vanter Tech Logo" class="w-12 h-12 rounded-2xl block light:hidden" />
+                    </a>
+                    <a href="https://vanter.net">
+                        <img src="/src/assets/vanter-tech_logo.png" alt="Vanter Tech Logo" class="w-12 h-12 rounded-2xl hidden light:block" />
+                    </a>
+                </div>
+            </div>
             
             {/* Párrafo más grande: md:text-xl, max-w aumentado */}
             <p class="text-lg md:text-xl text-center md:text-left text-dev-muted max-w-2xl leading-relaxed transition-colors duration-300">

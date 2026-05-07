@@ -5,31 +5,29 @@ import vanterLogo from "../assets/vanter-tech_logo.png";
 import vanterLogoNegative from "../assets/vanter-tech_logo_negative.png";
 ---
 
-{/* Flexbox controlado: aumentamos padding lateral para proteger los bordes */}
-  <main class="relative w-full min-h-[calc(100vh-80px)] flex flex-col justify-start md:justify-center mt-20 md:mt-0 pt-12 md:pt-32 pb-24 md:pb-12 px-8 md:px-16 lg:px-0">
+  <main class="relative w-full min-h-screen overflow-x-hidden flex flex-col justify-start xl:justify-center">
     
-    {/* FONDO ANIMADO (MARQUEES) */}
-    {/* El absolute se ancla al body, no al main, por lo que no se ve afectado por el padding lateral */}
-    <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none flex items-center justify-center">
+    {/* FONDO ANIMADO: z-0 asegura que siempre quede DETRÁS del texto */}
+    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none flex items-center justify-center">
       
-      {/* BARRA 1 (Translúcida) */}
-      <div class="absolute w-[250vw] rotate-0 md:-rotate-22 translate-y-[38vh] lg:translate-y-[45vh] bg-dev-surface border-y border-dev-border py-3 md:py-4 flex shadow-xl transition-transform duration-500 mt-15">
+      {/* BARRA 1: Horizontal abajo en móvil (bottom-0). En desktop (xl) restaura tu código original (-rotate-22 translate-y-[45vh]) */}
+      <div class="absolute w-[250vw] bottom-0 rotate-0 xl:bottom-auto xl:-rotate-10 xl:translate-y-[35vh] bg-dev-surface border-y border-dev-border py-4 flex shadow-xl transition-transform duration-500">
         <div class="flex w-max animate-marquee text-dev-primary font-code text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase">
           {[...Array(12)].map(() => (
             <div class="flex items-center justify-around w-max shrink-0 px-4 md:px-8">
-              <span class="mx-4 md:mx-8 flex items-center gap-3 md:gap-4"><span class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-orange-500 shrink-0"></span> UI/UX</span>
-              <span class="mx-4 md:mx-8 flex items-center gap-3 md:gap-4"><span class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-orange-500 shrink-0"></span> PROGRAMING</span>
-              <span class="mx-4 md:mx-8 flex items-center gap-3 md:gap-4"><span class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-orange-500 shrink-0"></span> CS</span>
-              <span class="mx-4 md:mx-8 flex items-center gap-3 md:gap-4"><span class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-orange-500 shrink-0"></span> BACKEND</span>
-              <span class="mx-4 md:mx-8 flex items-center gap-3 md:gap-4"><span class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-orange-500 shrink-0"></span> DEVELOPMENT</span>
+              <span class="mx-4 md:mx-8 flex items-center gap-3 md:gap-4"><span class="w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-orange-500 shrink-0"></span> UI/UX</span>
+              <span class="mx-4 md:mx-8 flex items-center gap-3 md:gap-4"><span class="w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-orange-500 shrink-0"></span> PROGRAMING</span>
+              <span class="mx-4 md:mx-8 flex items-center gap-3 md:gap-4"><span class="w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-orange-500 shrink-0"></span> CS</span>
+              <span class="mx-4 md:mx-8 flex items-center gap-3 md:gap-4"><span class="w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-orange-500 shrink-0"></span> BACKEND</span>
+              <span class="mx-4 md:mx-8 flex items-center gap-3 md:gap-4"><span class="w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-orange-500 shrink-0"></span> DEVELOPMENT</span>
             </div>
           ))}
         </div>
-      </div>                                                                                                                                                                                                                                       
+      </div>                                                                                                                                                                                                                                        
 
-      {/* BARRA 2 (Sólida) */}
-      <div class="hidden md:flex absolute w-[250vw] rotate-25 translate-x-[65vw] lg:translate-x-[55vw] bg-dev-primary text-dev-bg py-5 shadow-2xl transition-transform duration-500">
-        <div class="flex w-max animate-marquee text-dev-bg font-code text-base sm:text-xl font-bold tracking-widest uppercase" style="animation-direction: reverse;">
+      {/* BARRA 2 (Sólida): Tu código original restaurado (translate-x-[55vw] rotate-25). Oculta en móvil. */}
+      <div class="hidden xl:flex absolute w-[250vw] rotate-25 translate-x-[55vw] bg-dev-primary text-dev-bg py-5 shadow-2xl transition-transform duration-500">
+        <div class="flex w-max animate-marquee text-dev-bg font-code text-xl font-bold tracking-widest uppercase" style="animation-direction: reverse;">
           {[...Array(12)].map(() => (
             <div class="flex items-center justify-around w-max shrink-0 px-8">
               <span class="mx-8 flex items-center gap-4"><span class="w-3 h-3 rounded-full bg-dev-bg shrink-0"></span> FULLSTACK</span>
@@ -42,41 +40,38 @@ import vanterLogoNegative from "../assets/vanter-tech_logo_negative.png";
       </div>
     </div>
 
-    {/* CONTENIDO PRINCIPAL */}
-    {/* Quitamos el w-full conflictivo. Dejamos max-w-6xl y mx-auto para centrar en pantallas grandes */}
-    <section id="welcome" class="relative z-10 max-w-6xl mx-auto flex flex-col-reverse md:flex-row justify-center md:items-center gap-8 md:gap-16 lg:gap-32 pb-12">
+    {/* CONTENIDO PRINCIPAL: z-10 asegura que el texto SIEMPRE esté por encima de las barras */}
+    <section id="welcome" class="relative z-10 w-full max-w-7xl mx-auto flex flex-col-reverse xl:flex-row justify-center items-center gap-8 md:gap-12 xl:gap-16 px-6 md:px-12 xl:px-0 pt-32 pb-40 md:pt-40 md:pb-48 xl:py-0">
         
         {/* TEXTO */}
-        <div class="flex flex-col items-center md:items-start gap-6 flex-1">
+        <div class="flex flex-col items-center xl:items-start gap-6 lg:gap-8 flex-1 w-full">
             
-            {/* Título con el logo integrado */}
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-code text-dev-primary transition-colors duration-300 text-center md:text-left leading-tight">
+            <h1 class="text-5xl md:text-6xl lg:text-8xl xl:text-7xl font-bold font-code text-dev-primary transition-colors duration-300 text-center xl:text-left leading-tight w-full">
                 Fernando 
-                <span class="inline-flex align-middle mx-1 md:mx-3 -mt-2 md:-mt-3 animate-pulse">
-                    <Image src={vanterLogoNegative} alt="Vanter Tech Logo" class="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl block light:hidden" />
-                    <Image src={vanterLogo} alt="Vanter Tech Logo" class="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl hidden light:block" />
+                <span class="inline-flex align-middle mx-2 xl:mx-3 -mt-2 xl:-mt-3 animate-pulse">
+                    <Image src={vanterLogoNegative} alt="Vanter Tech Logo" class="w-12 h-12 md:w-14 md:h-14 lg:w-20 lg:h-20 xl:w-16 xl:h-16 rounded-xl block light:hidden" />
+                    <Image src={vanterLogo} alt="Vanter Tech Logo" class="w-12 h-12 md:w-14 md:h-14 lg:w-20 lg:h-20 xl:w-16 xl:h-16 rounded-xl hidden light:block" />
                 </span>
-                <br class="hidden lg:block" /> Obando
+                <br class="hidden xl:block" /> Obando
             </h1>
             
-            {/* Párrafo */}
-            <p class="text-lg md:text-xl text-center md:text-left text-dev-muted max-w-2xl leading-relaxed transition-colors duration-300">
+            <p class="text-base md:text-lg lg:text-2xl xl:text-xl text-center xl:text-left text-dev-muted max-w-2xl lg:max-w-4xl xl:max-w-2xl leading-relaxed transition-colors duration-300">
                 Desarrollador Backend y Web especializado en construir sistemas escalables y arquitecturas robustas. 
                 Transforma lógica de negocio compleja en APIs eficientes y experiencias web fluidas, dominando el ecosistema Java 
                 y Spring Boot.
             </p>
 
-            {/* BOTÓN (Reparado: href con # y pointer-events-auto) */}
-            <div class="mt-4 flex gap-4 relative z-50 pointer-events-auto">
-              <a href="projects" class="cursor-pointer px-8 py-4 bg-dev-primary text-dev-bg font-code font-bold text-sm tracking-widest rounded-full hover:opacity-90 transition-opacity duration-300 shadow-lg hover:shadow-xl">
+            <div class="mt-2 lg:mt-6 flex gap-4 pointer-events-auto">
+              <a href="projects" class="cursor-pointer px-8 py-4 lg:px-10 lg:py-5 bg-dev-primary text-dev-bg font-code font-bold text-sm lg:text-base tracking-widest rounded-full hover:opacity-90 transition-opacity duration-300 shadow-lg hover:shadow-xl">
                 VER PROYECTOS
               </a>
             </div>
         </div>
 
         {/* FOTO */}
-        <div class="shrink-0 mb-6 md:mb-0 relative group justify-center flex items-center">
-            <Image class="rounded-full h-48 w-48 md:h-80 md:w-80 lg:h-96 lg:w-96 object-cover shadow-[0_0_40px_rgba(0,0,0,0.5)] border-4 border-dev-surface transition-all duration-500 bg-dev-bg group-hover:scale-105" 
+        <div class="shrink-0 relative group flex justify-center items-center mb-4 xl:mb-0">
+            {/* Foto: Se hace gigante en iPad Pro (lg:w-[420px]) para llenar pantalla, y se MANTIENE gigante en Desktop (xl:w-[420px]) */}
+            <Image class="rounded-full w-56 h-56 md:w-72 md:h-72 lg:w-[420px] lg:h-[420px] xl:w-[410px] xl:h-[410px] object-cover shadow-[0_0_40px_rgba(0,0,0,0.5)] border-4 border-dev-surface transition-all duration-500 bg-dev-bg group-hover:scale-105" 
             src={webPhoto} alt="Fernando Obando - Backend Developer" />
         </div>
         

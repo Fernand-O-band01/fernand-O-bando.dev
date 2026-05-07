@@ -10,27 +10,28 @@
   font-display: swap; 
 }
 
-
 :root {
   --dev-background: #050505; 
   --dev-text-color: #ffffff;
-  
   --dev-border: rgba(255, 255, 255, 0.1); 
   --dev-surface: rgba(255, 255, 255, 0.05); 
   --dev-surface-hover: rgba(255, 255, 255, 0.1); 
   --dev-text-muted: #9ca3af; 
+  
+  /* NUEVO: Línea sutil blanca para el fondo oscuro */
+  --dev-grid-line: rgba(255, 255, 255, 0.03);
 }
-
 
 .light {
   --dev-background: #f7f5f0; 
   --dev-text-color: #2d2d2d; 
-  
-
   --dev-border: rgba(0, 0, 0, 0.1); 
   --dev-surface: rgba(0, 0, 0, 0.04); 
   --dev-surface-hover: rgba(0, 0, 0, 0.08);
   --dev-text-muted: #6b7280; 
+  
+  /* NUEVO: Línea sutil negra para el fondo claro */
+  --dev-grid-line: rgba(0, 0, 0, 0.05);
 }
 
 @theme {
@@ -44,8 +45,16 @@
 
   --animate-marquee: marquee 35s linear infinite;
 
-
   @keyframes marquee {
     to { transform: translateX(-50%); }
   }
+}
+
+/* NUEVO: La clase de la cuadrícula que usa tus variables dinámicas */
+.project-grid {
+  background-color: transparent;
+  background-image: 
+    linear-gradient(var(--dev-grid-line) 1px, transparent 1px), 
+    linear-gradient(90deg, var(--dev-grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
